@@ -11,7 +11,14 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <app-menu></app-menu>
+  
+  <div *ngIf="isLoggedIn">
+    <app-menu></app-menu>
+  </div>
+  <div *ngIf="!isLoggedIn">
+    <app-guest-menu></app-guest-menu>
+  </div>
+
   <router-outlet></router-outlet>
 </body>
 </html>
