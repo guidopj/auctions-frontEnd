@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuctionCreationComponent } from './auction-creation/auction-creation.component';
 import { GuestMenuComponent } from './guest-menu/guest-menu.component';
 import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angular-6-social-login';
+import { InProgressAuctionsComponent } from './in-progress-auctions/in-progress-auctions.component';
+import { HomeComponent } from './home/home.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -30,7 +32,9 @@ export function getAuthServiceConfigs() {
     AuthMenuComponent,
     LoginComponent,
     AuctionCreationComponent,
-    GuestMenuComponent
+    GuestMenuComponent,
+    InProgressAuctionsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

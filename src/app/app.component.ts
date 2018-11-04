@@ -5,13 +5,10 @@ import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angul
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnChanges{
+export class AppComponent{
   title = 'auctions';
-  @Input() isLoggedIn = false;
+  @Input() isLoggedIn;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
 
   setIsLoggedIn(isLogged:boolean){
     this.isLoggedIn = isLogged;
