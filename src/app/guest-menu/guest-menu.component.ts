@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+
+import {
+  AuthService,
+  GoogleLoginProvider
+} from 'angular-6-social-login';
 
 @Component({
   selector: 'app-guest-menu',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestMenuComponent implements OnInit {
 
-  constructor() { }
+  @Input() isLoggedIn:boolean;
+  @Output() changeProps: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  ngOnInit() {
+  constructor(private socialAuthService: AuthService) {
   }
 
+  ngOnInit() {
+    console.log(this.isLoggedIn);
+  }
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform == "google") {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+
+      this.socialAuthService.signIn(socialPlatformProvider).then(
+        (userData) => {
+          console.log(socialPlatform + " sign in data : ", userData);
+          this.isLoggedIn = true;
+          this.changeProps.emit(this.isLoggedIn);
+        }
+      );
+    }
+  }
 }

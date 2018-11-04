@@ -9,6 +9,9 @@
 <head>
   <title>{{title}}</title>
   <meta charset="utf-8">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="98767924721-a7brie8thht3umitqf47hg18fv2joqvp.apps.googleusercontent.com">
+
 </head>
 <body>
   
@@ -16,7 +19,8 @@
     <app-menu></app-menu>
   </div>
   <div *ngIf="!isLoggedIn">
-    <app-guest-menu></app-guest-menu>
+    <app-guest-menu [isLoggedIn]="isLoggedIn" (changeProps) = "changeProps($event)"></app-guest-menu>
+
   </div>
 
   <router-outlet></router-outlet>
