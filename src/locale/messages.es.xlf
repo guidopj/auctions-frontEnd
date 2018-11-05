@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="createAuction" datatype="html">
+        <source>Create Auction</source>
+        <target>Crear Subasta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth-menu/auth-menu.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="inProgressAuction" datatype="html">
+        <source>List In Progress Auctions</source>
+        <target>Listar Subastas en Progreso</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth-menu/auth-menu.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home" datatype="html">
+        <source>Home</source>
+        <target>Pagina Principal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth-menu/auth-menu.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>Log Out</source>
+        <target>Cerrar Sesion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth-menu/auth-menu.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

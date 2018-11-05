@@ -11,6 +11,12 @@ import { GuestMenuComponent } from './guest-menu/guest-menu.component';
 import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from 'angular-6-social-login';
 import { InProgressAuctionsComponent } from './in-progress-auctions/in-progress-auctions.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LogoutComponent } from './logout/logout.component';
+import { AuctionSearchComponent } from './auction-search/auction-search.component';
+import {RouterModule} from '@angular/router';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -25,6 +31,10 @@ export function getAuthServiceConfigs() {
   return config;
 }
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,12 +44,24 @@ export function getAuthServiceConfigs() {
     AuctionCreationComponent,
     GuestMenuComponent,
     InProgressAuctionsComponent,
-    HomeComponent
+    HomeComponent,
+    LogoutComponent,
+    AuctionSearchComponent,
+
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

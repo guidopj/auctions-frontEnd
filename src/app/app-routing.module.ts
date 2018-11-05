@@ -7,6 +7,7 @@ import { LoginComponent }      from './login/login.component';
 import { AuctionCreationComponent }  from './auction-creation/auction-creation.component';
 import { InProgressAuctionsComponent}  from './in-progress-auctions/in-progress-auctions.component';
 import {HomeComponent} from './home/home.component';
+import {LogoutComponent} from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -16,11 +17,12 @@ const routes: Routes = [
   { path: 'createAuction', component: AuctionCreationComponent },
   { path: 'inProgressAuctions', component: InProgressAuctionsComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
+  exports: [RouterModule],
 })
 
 export class AppRoutingModule { }

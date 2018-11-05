@@ -5,23 +5,31 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item">
-        <a class="nav-link" routerLink="/createAuction">Create Auction</a>
+        <a i18n="@@createAuction" class="nav-link" routerLink="/createAuction">Create Auction</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/inProgressAuctions">List In Progress Auctions</a>
+        <a class="nav-link" i18n="@@inProgressAuction" routerLink="/inProgressAuctions">List In Progress Auctions</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home">Home</a>
+        <a class="nav-link" i18n="@@home" routerLink="/home">Home</a>
       </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Item e</a>
-        </li>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Languages
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="">English</a>
+          <a class="dropdown-item" href="">Spanish</a>
+        </div>
+      </div>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/logOut">Log Out</a>
+        <a class="nav-link">{{userEmail}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" i18n="@@logout" routerLink="/logout">Log Out</a>
       </li>
     </ul>
   </div>

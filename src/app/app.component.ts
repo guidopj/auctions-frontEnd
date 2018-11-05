@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, Input, } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,16 @@ import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angul
 })
 export class AppComponent{
   title = 'auctions';
-  @Input() isLoggedIn;
+  @Input() userEmail:string;
+  isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
 
-
-  setIsLoggedIn(isLogged:boolean){
-    this.isLoggedIn = isLogged;
+  constructor() {
+    localStorage.setItem("isLoggedIn","false");
   }
 
-  changeProps(bool){
-    this.isLoggedIn = bool;
+  changeProps(email){
+    localStorage.setItem("isLoggedIn","true");
+    console.log("logged de guest " + localStorage.getItem("isLoggedIn"));
+    this.userEmail = email;
   }
 }

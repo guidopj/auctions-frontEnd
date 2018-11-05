@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from "@angular/router"
 
 import {
   AuthService,
@@ -12,14 +13,14 @@ import {
 })
 export class GuestMenuComponent implements OnInit {
 
-  @Input() isLoggedIn:boolean;
-  @Output() changeProps: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+  @Output() changeProps: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private socialAuthService: AuthService) {
+  constructor(private socialAuthService: AuthService,private router: Router) {
   }
 
   ngOnInit() {
-    console.log(this.isLoggedIn);
+    console.log("init de guest " + this.isLoggedIn);
   }
 
   public socialSignIn(socialPlatform: string) {
@@ -30,8 +31,8 @@ export class GuestMenuComponent implements OnInit {
       this.socialAuthService.signIn(socialPlatformProvider).then(
         (userData) => {
           console.log(socialPlatform + " sign in data : ", userData);
-          this.isLoggedIn = true;
-          this.changeProps.emit(this.isLoggedIn);
+          this.changeProps.emit(userData.email);
+          this.router.navigate(['/home']);
         }
       );
     }
